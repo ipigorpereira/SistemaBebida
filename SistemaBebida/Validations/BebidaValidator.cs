@@ -18,9 +18,9 @@ namespace SistemaBebida.Validations
 
             RuleFor(x => x.Valor).NotEmpty().NotNull().WithMessage("Bebida deve ter preco");
 
-            RuleFor(x => x.Marca).NotEmpty().NotNull().WithMessage("Bebida deve ter marca");
+            RuleFor(x => x.MarcaId).NotEmpty().NotNull().WithMessage("Bebida deve ter marca");
 
-            RuleFor(x => x.TipoBebida).NotEmpty().NotNull().WithMessage("Bebida deve ter tipo");
+            RuleFor(x => x.TipoBebidaId).NotEmpty().NotNull().WithMessage("Bebida deve ter tipo");
 
         }
         

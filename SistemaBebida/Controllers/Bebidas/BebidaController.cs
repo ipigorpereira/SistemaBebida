@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using SistemaBebida.DTO_s.Bebidas;
 using SistemaBebida.Entities;
 using SistemaBebida.Services.Bebidas;
+using SistemaBebida.Services.Estoques;
 
 namespace SistemaBebida.Controllers.Bebidas
 {
@@ -15,11 +16,13 @@ namespace SistemaBebida.Controllers.Bebidas
     public class BebidaController : Controller
     {
         private readonly IBebidaService _bebidaService;
+        private readonly IEstoqueService _estoqueService;
         private readonly IMapper _mapper;
 
-        public BebidaController(IBebidaService bebidaService, IMapper mapper)
+        public BebidaController(IBebidaService bebidaService, IEstoqueService estoqueService, IMapper mapper)
         {
             _bebidaService = bebidaService;
+            _estoqueService = estoqueService;
             _mapper = mapper;
         }
 
@@ -30,6 +33,11 @@ namespace SistemaBebida.Controllers.Bebidas
             var bebida = _mapper.Map<Bebida>(bebidaRequest);
             var p = await _bebidaService.Create(bebida);
             var response = _mapper.Map<BebidaResponse>(p);
+
+            var estoque = new Estoque();
+            estoque.BebidaId = response.BebidaId;
+            var responseEstoque =_estoqueService.Create(estoque);
+
             return response;
         }
 
@@ -57,6 +65,25 @@ namespace SistemaBebida.Controllers.Bebidas
 
             var x = list.Select(p => _mapper.Map<BebidaResponse>(p)).ToList();
             return x;
+        }
+
+        [HttpGet("listone/{id}")]
+        public async Task<Bebida> ListOne(Guid id)
+        {
+            var list = await _bebidaService.ListBebidaCompleta(id);
+
+            var x = list.First();
+
+            return x;
+        }
+
+        [HttpGet("listcompleto")]
+        public async Task<IEnumerable<Bebida>> ListCompleto(Guid bebidaId, Guid marcaId, Guid tipoBebidaId, string descricao)
+        { 
+            var list = await _bebidaService.ListBebidaCompleta(bebidaId);
+
+            
+            return list;
         }
     }
 }

@@ -28,10 +28,13 @@ namespace SistemaBebida.Repositories.TiposBebidas
             return _context.SaveChangesAsync();
         }
 
-        public Task<List<TipoBebida>> List()
+        public Task<List<TipoBebida>> List(Guid id)
         {
+
             var tiposBebidas = _context.TiposBebidas.AsQueryable();
 
+            if (id != Guid.Empty && id != default)
+                tiposBebidas = tiposBebidas.Where(x => x.TipoBebidaId == id);
             return tiposBebidas.AsNoTracking().ToListAsync();
         }
 

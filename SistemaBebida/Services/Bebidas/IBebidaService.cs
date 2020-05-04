@@ -16,5 +16,7 @@ namespace SistemaBebida.Services.Bebidas
         Task Update(Bebida bebida);
 
         Task Delete(Guid bebidaId);
+
+        Task<List<Bebida>> ListBebidaCompleta(Guid bebidaId);
     }
 }

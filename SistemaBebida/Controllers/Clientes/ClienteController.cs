@@ -58,5 +58,14 @@ namespace SistemaBebida.Controllers.Clientes
             var x = list.Select(p => _mapper.Map<ClienteResponse>(p)).ToList();
             return x;
         }
+
+        [HttpGet("listone/{id}")]
+        public async Task<ClienteResponse> ListOne(Guid id)
+        {
+            var list = await _clienteService.List(id);
+
+            var x = list.Select(p => _mapper.Map<ClienteResponse>(p)).First();
+            return x;
+        }
     }
 }

@@ -49,11 +49,20 @@ namespace SistemaBebida.Controllers.Marcas
 
         //LIST
         [HttpGet("list")]
-        public async Task<IEnumerable<MarcaResponse>> List()
+        public async Task<IEnumerable<MarcaResponse>> List(Guid id)
         {
-            var list = await _marcaService.List();
+            var list = await _marcaService.List(id);
 
             var x = list.Select(p => _mapper.Map<MarcaResponse>(p)).ToList();
+            return x;
+        }
+
+        [HttpGet("listone/{id}")]
+        public async Task<MarcaResponse> ListOne(Guid id)
+        {
+            var list = await _marcaService.List(id);
+
+            var x = list.Select(p => _mapper.Map<MarcaResponse>(p)).First();
             return x;
         }
     }

@@ -10,7 +10,7 @@ namespace SistemaBebida.Services.TiposBebidas
     {
         Task<TipoBebida> Create(TipoBebida tipoBebida);
 
-        Task<List<TipoBebida>> List();
+        Task<List<TipoBebida>> List(Guid id);
 
         Task Delete(Guid tipoBebidaId);
 

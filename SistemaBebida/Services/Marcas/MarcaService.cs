@@ -31,9 +31,9 @@ namespace SistemaBebida.Services.Marcas
             return _marcaRepository.Delete(marcaId);
         }
 
-        public async Task<List<Marca>> List()
+        public async Task<List<Marca>> List(Guid id)
         {
-            var marcas = await _marcaRepository.List();
+            var marcas = await _marcaRepository.List(id);
             return marcas;
         }
 

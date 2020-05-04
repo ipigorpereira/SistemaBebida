@@ -29,9 +29,11 @@ namespace SistemaBebida.Repositories.Marcas
             return _context.SaveChangesAsync();
         }
 
-        public Task<List<Marca>> List()
+        public Task<List<Marca>> List(Guid id)
         {
             var marcas = _context.Marcas.AsQueryable();
+            if (id != Guid.Empty && id != default)
+                marcas = marcas.Where(x => x.MarcaId == id);
 
             return marcas.AsNoTracking().ToListAsync();
         }

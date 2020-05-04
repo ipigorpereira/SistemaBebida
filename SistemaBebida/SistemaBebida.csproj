@@ -36,4 +36,11 @@
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUi" Version="4.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Areas\Igor\Controllers\" />
+    <Folder Include="Areas\Igor\Data\" />
+    <Folder Include="Areas\Igor\Models\" />
+    <Folder Include="Areas\Igor\Views\" />
+  </ItemGroup>
+
 </Project>

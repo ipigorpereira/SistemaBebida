@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Igor\\source\\repos\\SistemaBebida\\SistemaBebida\\SistemaBebida.csproj": {}
+    "C:\\Repositórios\\SistemaBebida\\SistemaBebida\\SistemaBebida.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Igor\\source\\repos\\SistemaBebida\\SistemaBebida\\SistemaBebida.csproj": {
+    "C:\\Repositórios\\SistemaBebida\\SistemaBebida\\SistemaBebida.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Igor\\source\\repos\\SistemaBebida\\SistemaBebida\\SistemaBebida.csproj",
+        "projectUniqueName": "C:\\Repositórios\\SistemaBebida\\SistemaBebida\\SistemaBebida.csproj",
         "projectName": "SistemaBebida",
-        "projectPath": "C:\\Users\\Igor\\source\\repos\\SistemaBebida\\SistemaBebida\\SistemaBebida.csproj",
+        "projectPath": "C:\\Repositórios\\SistemaBebida\\SistemaBebida\\SistemaBebida.csproj",
         "packagesPath": "C:\\Users\\Igor\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Igor\\source\\repos\\SistemaBebida\\SistemaBebida\\obj\\",
+        "outputPath": "C:\\Repositórios\\SistemaBebida\\SistemaBebida\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -146,10 +146,16 @@
             }
           },
           "imports": [
-            "net461"
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
           ],
           "assetTargetFallback": true,
-          "warn": true
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -49,11 +49,20 @@ namespace SistemaBebida.Controllers.TiposBebidas
 
         //LIST
         [HttpGet("list")]
-        public async Task<IEnumerable<TipoBebidaResponse>> List()
+        public async Task<IEnumerable<TipoBebidaResponse>> List(Guid id)
         {
-            var list = await _tipoBebidaService.List();
+            var list = await _tipoBebidaService.List(id);
 
             var x = list.Select(p => _mapper.Map<TipoBebidaResponse>(p)).ToList();
+            return x;
+        }
+        //LIST
+        [HttpGet("listone/{id}")]
+        public async Task<TipoBebidaResponse> ListOne(Guid id)
+        {
+            var list = await _tipoBebidaService.List(id);
+
+            var x = list.Select(p => _mapper.Map<TipoBebidaResponse>(p)).First();
             return x;
         }
     }

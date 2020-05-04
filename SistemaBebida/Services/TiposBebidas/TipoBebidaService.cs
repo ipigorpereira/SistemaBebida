@@ -29,9 +29,9 @@ namespace SistemaBebida.Services.TiposBebidas
             return _tipoBebidaRepository.Delete(tipoBebidaId);
         }
 
-        public async Task<List<TipoBebida>> List()
+        public async Task<List<TipoBebida>> List(Guid id)
         {
-            var tiposBebidas = await _tipoBebidaRepository.List();
+            var tiposBebidas = await _tipoBebidaRepository.List(id);
             return tiposBebidas;
 
         }

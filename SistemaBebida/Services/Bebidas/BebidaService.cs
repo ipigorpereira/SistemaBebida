@@ -37,6 +37,12 @@ namespace SistemaBebida.Services.Bebidas
             return bebidas;
         }
 
+        public async Task<List<Bebida>> ListBebidaCompleta(Guid bebidaId)
+        {
+            var bebidas = await _bebidaRepository.ListBebidaCompleta(bebidaId);
+            return bebidas;
+        }
+
         public Task Update(Bebida bebida)
         {
             return _bebidaRepository.Update(bebida);

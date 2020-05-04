@@ -10,7 +10,7 @@ namespace SistemaBebida.Services.Marcas
     {
         Task<Marca> Create(Marca marca);
 
-        Task<List<Marca>> List();
+        Task<List<Marca>> List(Guid id);
 
         Task Delete(Guid marcaId);
 

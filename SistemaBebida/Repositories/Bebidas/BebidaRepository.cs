@@ -51,5 +51,17 @@ namespace SistemaBebida.Repositories.Bebidas
             _context.Update(bebida);
             return _context.SaveChangesAsync();
         }
+
+        public Task<List<Bebida>> ListBebidaCompleta(Guid bebidaId)
+        {
+            var bebidas = _context.Bebidas.Include(x => x.Marca).Include(y => y.TipoBebida).AsQueryable();
+
+            if (bebidaId != Guid.Empty && bebidaId != default)
+                bebidas = bebidas.Where(x => x.BebidaId == bebidaId);
+
+
+
+            return bebidas.AsNoTracking().ToListAsync();
+        }
     }
 }
